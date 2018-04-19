@@ -6,6 +6,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace EFCoreUnitTesting.Tests
 {
+    /// <summary>
+    /// Creates the context using an Sqlite connection.
+    /// </summary>
+    /// <seealso cref="ContextFactsBase" />
+    /// <seealso cref="IDisposable" />
     [TestClass]
     public class SqliteContextFacts : ContextFactsBase, IDisposable
     {
@@ -15,6 +20,13 @@ namespace EFCoreUnitTesting.Tests
             SqliteConnection.Open();
         }
 
+        private SqliteConnection SqliteConnection { get; }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
 
         protected override DbContextOptionsBuilder<BookDepositoryContext> Builder()
         {
@@ -23,20 +35,12 @@ namespace EFCoreUnitTesting.Tests
             return builder;
         }
 
-        private SqliteConnection SqliteConnection { get; }
-
         protected virtual void Dispose(bool disposing)
         {
             if (disposing)
             {
                 SqliteConnection?.Dispose();
             }
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
         }
     }
 }

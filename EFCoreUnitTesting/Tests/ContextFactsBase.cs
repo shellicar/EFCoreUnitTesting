@@ -8,6 +8,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace EFCoreUnitTesting.Tests
 {
+    /// <summary>
+    /// Base class for testing the database context.<br />
+    /// Derived class specifies the options for creating the context.
+    /// </summary>
     public abstract class ContextFactsBase
     {
         protected BookDepositoryContext Context()
@@ -149,7 +153,7 @@ namespace EFCoreUnitTesting.Tests
             book.BookAuthors = new List<BookAuthor>
             {
                 new BookAuthor {Book = book, Author = author1},
-                new BookAuthor {Book = book, Author = author2},
+                new BookAuthor {Book = book, Author = author2}
             };
 
             context.Books.Add(book);

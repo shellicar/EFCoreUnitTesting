@@ -8,6 +8,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace EFCoreUnitTesting.Tests
 {
+    /// <summary>
+    /// Creates the context using InMemoryDatabase.
+    /// </summary>
+    /// <seealso cref="ContextFactsBase" />
     [TestClass]
     public class InMemoryContextFacts : ContextFactsBase
     {

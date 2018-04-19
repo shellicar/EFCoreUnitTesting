@@ -14,6 +14,7 @@ namespace EFCoreUnitTesting.Models.Entities
         [Column("BookId")]
         [Required]
         public Guid BookId { get; set; }
+
         [Column("BookId")]
         [InverseProperty("BookAuthors")]
         public Book Book { get; set; }
@@ -21,6 +22,7 @@ namespace EFCoreUnitTesting.Models.Entities
         [Column("AuthorId")]
         [Required]
         public Guid AuthorId { get; set; }
+
         [Column("AuthorId")]
         [InverseProperty("BookAuthors")]
         public Author Author { get; set; }
